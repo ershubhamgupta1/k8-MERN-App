@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: posts
-        image: ershubhamgupta1/posts:0.3.5
+        image: ershubhamgupta1/posts:0.3.6
         volumeMounts:
           - mountPath: /app/story
             name: story-volume
@@ -27,7 +27,7 @@ spec:
             claimName: host-pvc
         - name: host-machine-volume
           hostPath:
-            path: ../../node-posts
+            path: /Users/shubhamgupta/learning/docker-react-node-app/node-posts
 ---
 apiVersion: v1
 kind: Service

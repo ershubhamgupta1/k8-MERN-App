@@ -1,0 +1,38 @@
+  apiVersion: "apps/v1"
+  kind: "Deployment"
+  metadata: 
+    name: "mongo-db"
+  spec: 
+    selector: 
+      matchLabels: 
+        app: "mongo-db"
+    replicas: 1
+    template: 
+      metadata: 
+        labels: 
+          app: "mongo-db"
+      spec: 
+        containers: 
+        - name: "mongo-db"
+          image: "mongo"
+          volumeMounts: 
+            - name: "mongodb-persistent-storage"
+              mountPath: "/data/db"
+                
+        volumes: 
+          - name: "mongodb-persistent-storage"
+            persistentVolumeClaim: 
+              claimName: "mongo-pvc"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-clusterip-srv
+spec:
+  selector:
+    app: mongo-db
+  ports:
+    - name: mongo-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

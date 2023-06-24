@@ -1,12 +1,38 @@
 const express = require('express')
 const fs = require('fs');
 const path = require('path');
-
+const {MongoClient} = require('mongodb');
 const amqp = require("amqplib");
 
 const app = express()
 const port = 4000
 var globalVar = 0
+// Create Instance of MongoClient for mongodb
+const client = new MongoClient('mongodb://mongo-nodeport-svc:27017')
+
+// Connect to database
+app.get('/posts/create-posts', async(req, response)=> {
+  client.db('mydb').collection('posts').insertOne({
+    name: '2nd post',
+    user: 'Amyport@example.com'
+})
+    .then((res) => {
+        console.log("res======>>>", res);
+        response.status(201).json({ message: 'Posts Created!' });
+    })
+    .catch((err) => console.log("error in creating record-------", err));
+})
+
+app.get('/posts/get-posts', async(req, response)=> {
+  client.db('mydb').collection('posts').findOne({name: '2nd post'})
+    .then((res) => {
+        console.log("posts======", res);
+        response.status(201).json({ message: 'Posts fetched!' });
+
+    })
+    .catch((err) => console.log("error in creating record-------", err));
+})
+
 
 app.get('/posts/host-machine', (req, res) => {
   console.log("before respond======>>", globalVar, req.query.reset);
@@ -108,7 +134,13 @@ app.get('/order', async(req, res) => {
 
 // });
 
+
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port>>> ${port}`)
+  client.connect()
+    .then(() => console.log('Connected Successfully'))
+    .catch(error => console.log('Failed to connect', error))
+
 })
 
