@@ -10,3 +10,6 @@
 8) Clone the repo : git clone https://github.com/ershubhamgupta1/k8-MERN-App.git
 9) run ./index.sh
 10) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 
+
+
+11) To see all the pods, containers etc run : minikube dashboard
