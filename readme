@@ -1,0 +1,12 @@
+
+
+1) Install Vs code
+2) Install brew : https://brew.sh/ ( when you run the command then next instructions will be in the terminal output, so don’t forget to check the output of the command) 
+3) install minikube by running: brew install minikube
+4) install podman by running : brew install podman
+5) initialize podman :  podman machine init --cpus 2 --memory 2048 --rootful
+6) start podman : podman machine start
+7) Start minikube : minikube start --kubernetes-version=v1.22.5 --driver=podman --container-runtime=cri-o --force-systemd —feature-gates="LocalStorageCapacityIsolation=false"
+8) Clone the repo : git clone https://github.com/ershubhamgupta1/k8-MERN-App.git
+9) run ./index.sh
+10) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 

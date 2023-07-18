@@ -18,16 +18,16 @@ spec:
         volumeMounts:
           - mountPath: /app/story
             name: story-volume
-          - mountPath: /app
-            name: host-machine-volume
+          # - mountPath: /app
+          #   name: host-machine-volume
             
       volumes:
         - name: story-volume
           persistentVolumeClaim:
             claimName: host-pvc
-        - name: host-machine-volume
-          hostPath:
-            path: /Users/k8/learning/k8-MERN-App/node-posts
+        # - name: host-machine-volume
+        #   hostPath:
+        #     path: /Users/k8/learning/k8-MERN-App/node-posts
 ---
 apiVersion: v1
 kind: Service
