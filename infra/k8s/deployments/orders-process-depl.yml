@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders-process-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders-process
+  template: 
+    metadata:
+      labels:
+        app: orders-process
+    spec:
+      containers:
+      - name: orders-process
+        image: ershubhamgupta1/order-process:0.0.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-process-clusterip-srv
+spec:
+  selector:
+    app: orders-process
+  ports:
+    - name: orders-process
+      protocol: TCP
+      port: 5001
+      targetPort: 5001
