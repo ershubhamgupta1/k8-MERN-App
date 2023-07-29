@@ -28,7 +28,11 @@ kubectl apply -f "$SERVICE_DIR/rabbitmq-srv.yml"
 kubectl apply -f "$SERVICE_DIR/react-app-srv.yml"
 
 
+# Create elasticsearch 
 
-
-
-
+kubectl create -f https://download.elastic.co/downloads/eck/2.3.0/crds.yaml
+kubectl apply -f https://download.elastic.co/downloads/eck/2.3.0/operator.yaml
+kubectl apply -f elasticsearch.yaml
+PASSWORD=$(kubectl get secret elasticsearch-sample-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+echo $PASSWORD
+kubectl port-forward service/elasticsearch-sample-es-http 3002:9200

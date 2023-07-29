@@ -4,12 +4,21 @@
 2) Install brew : https://brew.sh/ ( when you run the command then next instructions will be in the terminal output, so don’t forget to check the output of the command) 
 3) install minikube by running: brew install minikube
 4) install podman by running : brew install podman
-5) initialize podman :  podman machine init --cpus 2 --memory 2048 --rootful
+5) initialize podman :  podman machine init --cpus 2 --memory 5196 --rootful
 6) start podman : podman machine start
-7) Start minikube : minikube start --kubernetes-version=v1.22.5 --driver=podman --container-runtime=cri-o --force-systemd —feature-gates="LocalStorageCapacityIsolation=false"
+7) Start minikube : minikube start --kubernetes-version=v1.27.3 --driver=podman --container-runtime=cri-o --force-systemd —feature-gates="LocalStorageCapacityIsolation=false" --memory 4196
 8) Clone the repo : git clone https://github.com/ershubhamgupta1/k8-MERN-App.git
 9) run ./index.sh
 10) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 
-
-
 11) To see all the pods, containers etc run : minikube dashboard
+
+#########################################################################################################
+
+
+Access Elasticsearch
+
+access elasticsearch using from browser: https://localhost:3002/
+access elasticsearch using curl
+
+  1) create index: curl -u "elastic:$PASSWORD" -k -X PUT "https://localhost:3002/shubham-log-index?pretty"
+  2) see index: curl -u "elastic:$PASSWORD" -k "https://localhost:3002/_cat/indices?v"

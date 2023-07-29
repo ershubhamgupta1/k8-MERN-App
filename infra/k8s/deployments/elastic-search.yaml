@@ -1,0 +1,17 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: elasticsearch-sample
+spec:
+  version: 7.15.2
+  nodeSets:
+  - name: default
+    config:
+      node.store.allow_mmap: false
+    podTemplate:
+      spec:
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          fsGroup: 1000
+    count: 2
