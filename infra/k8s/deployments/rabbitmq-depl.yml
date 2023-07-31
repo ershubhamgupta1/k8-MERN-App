@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: rabbitmq
-        image: rabbitmq:management
+        image: docker.io/rabbitmq:management
 ---
 apiVersion: v1
 kind: Service

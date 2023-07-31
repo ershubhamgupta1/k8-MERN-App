@@ -17,7 +17,7 @@
 
 Access Elasticsearch
 
-access elasticsearch using from browser: https://localhost:3002/
+access elasticsearch using from browser: https://localhost:3002/ ( username: elastic)
 access elasticsearch using curl
 
   1) create index: curl -u "elastic:$PASSWORD" -k -X PUT "https://localhost:3002/shubham-log-index?pretty"

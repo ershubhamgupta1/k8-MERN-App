@@ -14,7 +14,7 @@
       spec: 
         containers: 
         - name: "mongo-db"
-          image: "mongo"
+          image: "docker.io/mongo"
           volumeMounts: 
             - name: "mongodb-persistent-storage"
               mountPath: "/data/db"
