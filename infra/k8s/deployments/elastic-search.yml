@@ -1,3 +1,5 @@
+
+
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
 metadata:
@@ -9,9 +11,22 @@ spec:
     config:
       node.store.allow_mmap: false
     podTemplate:
+      metadata: 
+        labels:
+          app: elastic-search
       spec:
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
           fsGroup: 1000
     count: 2
+  http:
+    service:
+      spec:
+        type: NodePort
+        ports: 
+          - name: https
+            port: 9200
+            targetPort: 9200
+            protocol: TCP
+            nodePort: 31920

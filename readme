@@ -6,16 +6,21 @@
 4) install podman by running : brew install podman
 5) initialize podman :  podman machine init --cpus 2 --memory 5196 --rootful
 6) start podman : podman machine start
-7) Start minikube : minikube start --kubernetes-version=v1.27.3 --driver=podman --container-runtime=cri-o --force-systemd —feature-gates="LocalStorageCapacityIsolation=false" --memory 4196
-8) Clone the repo : git clone https://github.com/ershubhamgupta1/k8-MERN-App.git
-9) run ./index.sh
-10) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 
-11) To see all the pods, containers etc run : minikube dashboard
+7) Start minikube : minikube start --kubernetes-version=v1.27.3 --driver=podman --container-runtime=cri-o --force-systemd —feature-gates="LocalStorageCapacityIsolation=false" --memory 7196
+8) run ./index.sh
+9) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 
+10) To see all the pods, containers etc run : minikube dashboard
 
 #########################################################################################################
 
 
 Access Elasticsearch
+
+Open terminal and run following three commands 
+
+1) PASSWORD=$(kubectl get secret elasticsearch-sample-es-elastic-user -o=jsonpath='{.data.elastic}' | base64 --decode)
+2) echo $PASSWORD
+3) kubectl port-forward service/elasticsearch-sample-es-http 3002:9200 
 
 access elasticsearch using from browser: https://localhost:3002/ ( username: elastic)
 access elasticsearch using curl
