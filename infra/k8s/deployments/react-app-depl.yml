@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: react-app
-        image: ershubhamgupta1/react-app:0.0.1
+        image: docker.io/ershubhamgupta1/react-app:0.0.1
 ---
 apiVersion: v1
 kind: Service
