@@ -14,7 +14,21 @@ spec:
     spec:
       containers:
       - name: posts
-        image: docker.io/ershubhamgupta1/posts:0.0.1
+        image: docker.io/ershubhamgupta1/posts:0.1.2
+        imagePullPolicy: Always
+        env:
+          - name: elasticsearch_node
+            value: https://elasticsearch-sample-es-http.default.svc.cluster.local:9200
+          - name: elasticsearch_certificate
+            valueFrom:
+              secretKeyRef:
+                name: elasticsearch-sample-es-http-certs-internal
+                key: ca.crt
+          - name: elasticsearch_password
+            valueFrom:
+              secretKeyRef:
+                name: elasticsearch-sample-es-elastic-user
+                key: elastic
         volumeMounts:
           - mountPath: /app/story
             name: story-volume
@@ -27,7 +41,7 @@ spec:
             claimName: host-pvc
         # - name: host-machine-volume
         #   hostPath:
-        #     path: /Users/k8/learning/k8-MERN-App/node-posts
+        #     path: /Users/shubhamgupta/learning/k8-MERN-App/microservices/node-posts
 ---
 apiVersion: v1
 kind: Service
