@@ -11,6 +11,8 @@
 </p>
 
 
+**Run this repo locally by using the following steps:**
+
 1) Install Vs code
 2) Install brew : https://brew.sh/ ( when you run the command then next instructions will be in the terminal output, so don’t forget to check the output of the command) 
 3) install minikube by running: brew install minikube
@@ -22,10 +24,10 @@
 9) get url of minikube to access the k8 microservice from browser: minikube service posts-srv --url 
 10) To see all the pods, containers etc run : minikube dashboard
 
-###################################################################################################################
-###################################################################################################################
+####################################
+####################################
 
-Access Elasticsearch
+**Access Elasticsearch**
 
 Open terminal and run following three commands 
 
@@ -47,22 +49,44 @@ access elasticsearch using curl
   2) see index: curl -u "elastic:$PASSWORD" -k "https://localhost:3002/_cat/indices?v"
 
 
-########################################################################################################################
-########################################################################################################################
+####################################
+####################################
 
-Access posts microservice
-
+**Access posts microservice
+**
 Run the following command to access 'post' microservice related  backend APIs from browser: minikube service posts-srv --url
 for an example the api to create post is : BaseUrl/posts/create-posts (base url you can get from running the above command)
 
 All the APIs related to post microservice are available on : k8-MERN-App/microservices/node-posts/index.js
 
-########################################################################################################################
-########################################################################################################################
+####################################
+####################################
 
-Access auth microservice
-
+**Access auth microservice
+**
 Run the following command to access 'auth' microservice related backend APIs from browser: minikube service auth-srv --url
 for an example the api to login is : BaseUrl/auth/login (base url you can get from running the above command)
 
 All the APIs related to post microservice are available on : k8-MERN-App/microservices/node-auth/index.js
+
+####################################
+####################################
+
+**Features**
+
+1) Nodejs microservices.
+2) Access elasticsearch from browser.
+3) Access mongodb from nodejs microservice.
+4) Access rabbitmq from nodejs microservice.
+5) Communication b/w microservices.
+6) Running rabbitmq and mongodb as microservice.
+   
+
+
+<h2> 🚀 &nbsp;Some Tools I Have Used and Learned</h2>
+<p align="left">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="vscode" width="45" height="45"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="bash" width="45" height="45"/>
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="php" width="45" height="45"/>
+</p>
+
