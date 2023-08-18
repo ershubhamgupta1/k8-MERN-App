@@ -15,18 +15,20 @@ spec:
         labels:
           app: elastic-search
       spec:
+        containers:
+          - name: elasticsearch
         securityContext:
           runAsUser: 1000
           runAsGroup: 1000
           fsGroup: 1000
     count: 2
-  http:
-    service:
-      spec:
-        type: NodePort
-        ports: 
-          - name: https
-            port: 9200
-            targetPort: 9200
-            protocol: TCP
-            nodePort: 31920
+  # http:
+  #   service:
+  #     spec:
+  #       type: NodePort
+  #       ports: 
+  #         - name: https
+  #           port: 9200
+  #           targetPort: 9200
+  #           protocol: TCP
+  #           nodePort: 31920
