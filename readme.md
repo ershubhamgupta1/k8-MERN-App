@@ -2,9 +2,12 @@
 
 <p align="center">
     <a href="https://kubernetes.io" alt="Kubernetes">
-        <img src="https://img.shields.io/badge/Kubernetes-1.18-blue" /></a>
-    <a href="#backers" alt="Backers on Open Collective">
-        <img src="https://img.shields.io/opencollective/backers/shields" /></a>
+        <img src="https://img.shields.io/badge/Kubernetes-1.27.3-blue" /></a>
+    <a href="https://minikube.sigs.k8s.io/docs" alt="Minikube">
+        <img src="https://img.shields.io/badge/minikube-1.31.1-green" /></a>
+    <a href="https://minikube.sigs.k8s.io/docs" alt="Podman">
+        <img src="https://img.shields.io/badge/podman-4.6.0-yellow" /></a>
+
 </p>
 
 
