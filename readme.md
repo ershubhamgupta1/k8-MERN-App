@@ -12,6 +12,12 @@
 
 </p>
 
+<h2>Description</h2>
+
+This project is about running the application in microservice architecture. We have multiple nodejs application running as microservices. Also we have integrated the mongodb, rabbitmq, elasticsearch as service. This project has been tried & tested on Mac but it should work on all the platforms.
+    
+##############################
+
 <h2> 🚀 &nbsp;Run this repo locally by using the following steps</h2>
 
 1) Install Vs code
