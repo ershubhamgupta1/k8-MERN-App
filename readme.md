@@ -18,7 +18,7 @@ This project is about running the application in microservice architecture. We h
     
 ##############################
 
-<h2> 🚀 &nbsp;Run this repo locally by using the following steps</h2>
+<h2> 🚀 ## Getting Started</h2>
 
 1) Install Vs code
 2) Install brew : https://brew.sh/ ( when you run the command then next instructions will be in the terminal output, so don’t forget to check the output of the command) 
